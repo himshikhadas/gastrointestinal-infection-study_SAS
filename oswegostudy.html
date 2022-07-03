@@ -1,0 +1,3077 @@
+<html>
+<meta charset="UTF-8">
+<style>
+body { 
+font-family: 'Lato', sans-serif !important;
+font-size: 14px!important;
+color: #353535;
+background-color: #f0f1f2;
+background: #f0f1f2;
+}
+</style>
+<title>
+Program Summary - oswegostudy.sas
+</title>
+<body>
+<center>
+<h3>
+Program Summary - oswegostudy.sas</center>
+<p><hr>
+<h3>Execution Environment</h3>
+<table border=0>
+<tr><td nowrap>Author:</td><td nowrap>u60771138</td></tr><tr><td nowrap>File:</td><td nowrap>/home/u60771138/week4/Project 1/oswegostudy.sas</td></tr><tr><td nowrap>SAS Platform:</td><td nowrap>Linux LIN X64 3.10.0-1062.9.1.el7.x86_64</td></tr><tr><td nowrap>SAS Host:</td><td nowrap>ODAWS01-USW2.ODA.SAS.COM</td></tr><tr><td nowrap>SAS Version:</td><td nowrap>9.04.01M6P11072018</td></tr><tr><td nowrap>SAS Locale:</td><td nowrap>en_US</td></tr><tr><td nowrap>Submission Time:</td><td nowrap>7/3/2022, 10:57:50 AM</td></tr><tr><td nowrap>Browser Host:</td><td nowrap>POOL-100-1-177-13.NWRKNJ.FIOS.VERIZON.NET</td></tr><tr><td nowrap>User Agent:</td><td>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36</td></tr><tr><td nowrap>Application Server:</td><td nowrap>ODAMID02-USW2.ODA.SAS.COM</td></tr>
+</table>
+</h3></center>
+<p><hr></hr>
+<link media="all" rel="stylesheet" href="https://odamid-usw2.oda.sas.com/SASStudio/proxy/308001.8.0.20200203113100_f0dms38p/resources/js/dojo/dijit/themes/corporate/sce.css" /><div>
+<h3>Code: oswegostudy.sas</h3>
+<div style="width: 1085.43px; height: 871.4px;"><div tabindex="-1" role="application" class="textview sce sce-sas _textviewDOMReady" style="position: relative; overflow: hidden; width: 100%; height: 100%; text-size-adjust: 100%; line-height: normal;"><div class="textviewLeftRuler" tabindex="-1" aria-hidden="true" style="overflow: hidden; user-select: none; position: absolute; top: 0px; bottom: 0px; cursor: default; display: none;"></div><div class="textviewScroll" tabindex="-1" style="position: absolute; inset: 0px; border-width: 0px; margin: 0px; outline: none; background: transparent; overflow: hidden;"><div style="margin: 0px; border-width: 0px; padding: 0px; height: 846.4px; width: 1082px;"></div></div><div class="textviewRightRuler" tabindex="-1" aria-hidden="true" style="overflow: hidden; user-select: none; position: absolute; top: 0px; bottom: 0px; cursor: default; display: none; right: 0px;"></div><div class="textviewInnerRightRuler" tabindex="-1" aria-hidden="true" style="overflow: hidden; user-select: none; position: absolute; top: 0px; bottom: 0px; cursor: default; display: none; z-index: 1; right: 0px;"></div><div class="textviewMarginRuler" tabindex="-1" aria-hidden="true" style="overflow: hidden; user-select: none; position: absolute; top: 0px; bottom: 0px; cursor: default; display: none; z-index: 4; left: 2px;"></div><div style="position: absolute; overflow: hidden; margin: 0px; border-width: 0px; padding: 0px; background: transparent; inset: 0px -1px 4px 0px;"><div style="position: absolute; height: 1px; top: -1000px; background: transparent; width: 1082px;"></div><div class="textviewContent" tabindex="0" spellcheck="false" contenteditable="true" style="position: absolute; border-width: 0px; margin: 0px; padding: 0px; outline: none; z-index: 1; user-select: text; white-space: pre; overflow-wrap: normal; tab-size: 4; left: 2px; top: 4px; width: 1082px; height: 863px;"><div><span class="comment">*Oswego study project;</span><span> </span></div><div><span class="comment">*Oswego study is based on a gastrointestinal illness outbreak investigation conducted by the New York State Department of</span><span> </span></div><div><span class="comment">Public Health Division.</span><span> </span></div><div><span> </span></div><div><span class="comment">*ref to library;</span><span> </span></div><div><span> </span></div><div><span class="macro-keyword">%let</span><span class="text"> path </span><span class="sep">=</span><span class="text"> </span><span class="sep">/</span><span class="text">home</span><span class="sep">/</span><span class="text">u60771138</span><span class="sep">/</span><span class="text">Project </span><span class="numeric">1</span><span class="sep">;</span><span> </span></div><div><span class="text"> </span><span class="keyword">libname</span><span class="text"> oswego </span><span class="string">"&amp;path"</span><span class="sep">;</span><span> </span></div><div><span class="text"> </span><span> </span></div><div><span class="text"> </span><span class="comment">*import data;</span><span> </span></div><div class=" block-mark"><span class="sec-keyword">data</span><span class="text"> osw</span><span class="sep">;</span><span> </span></div><div><span class="text">     </span><span> </span></div><div><span class="text">    </span><span class="keyword">infile</span><span class="text"> </span><span class="string">"&amp;path/OswegoCaseStudy.csv"</span><span class="text"> </span><span class="keyword">dsd</span><span class="text"> </span><span class="keyword">missover</span><span class="sep">;</span><span class="text">    </span><span class="comment">*infile used to define the source of the</span><span> </span></div><div><span class="comment">external data to the DATA step;</span><span> </span></div><div><span> </span></div><div><span class="text">    </span><span class="keyword">input</span><span class="text"> Subject </span><span class="sep">:</span><span class="format">$12.</span><span class="text"> Counties </span><span class="sep">:</span><span class="format">$12.</span><span class="text"> AGE SEX </span><span class="sep">:</span><span class="format">$12.</span><span class="text"> ILL BAKEDHAM          </span><span> </span></div><div><span class="text">     SPINACH MASHEDPOTA CABBAGESAL JELLO ROLLS</span><span> </span></div><div><span class="text">     BROWNBREAD MILK COFFEE</span><span> </span></div><div><span class="text">     WATER CAKES VANILLA CHOCOLATE</span><span> </span></div><div><span class="text">     FRUITSALAD TimeSupper </span><span class="sep">:</span><span class="format">date.</span><span class="text"> DateOnset </span><span class="sep">:</span><span class="format">date.</span><span> </span></div><div><span class="text">     RecStatus UniqueKey</span><span class="sep">;</span><span class="text">      </span><span class="comment">*input causes the data to be transferred from the external source into the DATA step;</span><span> </span></div><div><span class="text">    </span><span class="keyword">format</span><span class="text"> TimeSupper DateOnset </span><span class="format">mmddyy10.</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div class=" block-mark"><span class="sec-keyword">PROC</span><span class="text"> </span><span class="sec-keyword">FREQ</span><span class="text"> </span><span class="keyword">data</span><span class="sep">=</span><span class="text">osw</span><span class="sep">;</span><span> </span></div><div><span class="keyword">table</span><span class="text"> ill ill</span><span class="sep">*</span><span class="text">sex</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div><span class="comment">*Generate measures of central tendency/descriptive statistics for variable age;</span><span> </span></div><div><span> </span></div><div class=" block-mark"><span class="sec-keyword">Proc</span><span class="text"> </span><span class="sec-keyword">means</span><span class="text"> </span><span class="keyword">data</span><span class="sep">=</span><span class="text">osw </span><span class="keyword">mean</span><span class="text"> </span><span class="keyword">median</span><span class="text"> </span><span class="keyword">min</span><span class="text"> </span><span class="keyword">max</span><span class="sep">;</span><span> </span></div><div><span class="keyword">var</span><span class="text"> age</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span class="text"> </span><span> </span></div><div><span> </span></div><div class=" block-mark"><span class="sec-keyword">proc</span><span class="text"> </span><span class="sec-keyword">freq</span><span class="text"> </span><span class="keyword">data</span><span class="sep">=</span><span class="text"> osw</span><span class="sep">;</span><span> </span></div><div><span class="keyword">table</span><span class="text"> </span><span class="sep">(</span><span class="text">BAKEDHAM</span><span> </span></div><div><span class="text">          SPINACH MASHEDPOTA CABBAGESAL JELLO ROLLS</span><span> </span></div><div><span class="text">          BROWNBREAD MILK COFFEE</span><span> </span></div><div><span class="text">          WATER CAKES VANILLA CHOCOLATE</span><span> </span></div><div><span class="text">          FRUITSALAD</span><span class="sep">)</span><span class="text"> </span><span class="sep">*</span><span class="text">ILL</span><span class="sep">;</span><span> </span></div><div><span class="sec-keyword">run</span><span class="sep">;</span><span> </span></div><div><span> </span></div><div><span class="comment">*Attack Rate Ratio is defined as the Number of people at risk who develop a certain illness;</span><span> </span></div><div><span> </span></div><div><span class="comment">*We see that Ice cream is the vehicle of infection as it has the highest attack rate ratio;</span><span> </span></div><div><span> </span></div></div><div class="textviewSelectionUnfocused" style="position: absolute; border-width: 0px; margin: 0px; padding: 0px; outline: none; width: 0px; height: 0px; z-index: 0; visibility: visible;"></div><div class="textviewSelectionUnfocused" style="position: absolute; border-width: 0px; margin: 0px; padding: 0px; outline: none; width: 0px; height: 0px; z-index: 0;"></div><div class="textviewSelectionUnfocused" style="position: absolute; border-width: 0px; margin: 0px; padding: 0px; outline: none; width: 0px; height: 0px; z-index: 0;"></div></div></div></div></div>
+<div>
+<hr><h3>Log: oswegostudy.sas</h3>
+<style>
+.sasError{color:red}
+.sasMessage{color:#000}
+.sasWarning{color:#008000}
+.sasSource{color:#000}
+.sasNote{color:#00f}
+</style><p>Notes (11)</p>
+<div {'style':display:none;height:0px'}="" charset="UTF-8"></div><div {'style':display:none;height:0px'}="" rel="stylesheet" href="./log.css"></div><style rel="stylesheet">.sasError {color: red;}.sasMessage{color:#000000;}.sasWarning{color:green;}.sasSource{color:#000000;}.sasNote {color:blue;}</style><div {'style':display:none;height:0px'}log:oswegostudy.sas<="" div=""><pre class="sasLog" id="pre_sasLog_11762" style="background-color:transparent; -webkit-user-select: text; -webkit-user-modify: read-only;-webkit-touch-callout: default;border-top-width: 0px;border-bottom-width: 0px"><div><div class="sasSource"> </div><div class="sasSource"> 1          OPTIONS NONOTES NOSTIMER NOSOURCE NOSYNTAXCHECK;</div><div class="sasSource"> 68         </div><div class="sasSource"> 69         *Oswego study project;</div><div class="sasSource"> 70         *Oswego study is based on a gastrointestinal illness outbreak investigation conducted by the New York State Department of</div><div class="sasSource"> 71         Public Health Division.</div><div class="sasSource"> 72         </div><div class="sasSource"> 73         *ref to library;</div><div class="sasSource"> 74         </div><div class="sasSource"> 75         %let path = /home/u60771138/Project 1;</div><div class="sasSource"> 76          libname oswego "&amp;path";</div><div class="sasNote" id="sasLogNote1_1656860269690"> NOTE: Libref OSWEGO was successfully assigned as follows: </div><div class="sasNote">       Engine:        V9 </div><div class="sasNote">       Physical Name: /home/u60771138/Project 1</div><div class="sasSource"> 77         </div><div class="sasSource"> 78          *import data;</div><div class="sasSource"> 79         data osw;</div><div class="sasSource"> 80         </div><div class="sasSource"> 81             infile "&amp;path/OswegoCaseStudy.csv" dsd missover;    *infile used to define the source of the</div><div class="sasSource"> 82         external data to the DATA step;</div><div class="sasSource"> 83         </div><div class="sasSource"> 84             input Subject :$12. Counties :$12. AGE SEX :$12. ILL BAKEDHAM</div><div class="sasSource"> 85              SPINACH MASHEDPOTA CABBAGESAL JELLO ROLLS</div><div class="sasSource"> 86              BROWNBREAD MILK COFFEE</div><div class="sasSource"> 87              WATER CAKES VANILLA CHOCOLATE</div><div class="sasSource"> 88              FRUITSALAD TimeSupper :date. DateOnset :date.</div><div class="sasSource"> 89              RecStatus UniqueKey;      *input causes the data to be transferred from the external source into the DATA step;</div><div class="sasSource"> 90             format TimeSupper DateOnset mmddyy10.;</div><div class="sasSource"> 91         run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote2_1656860269690"> NOTE: The infile "/home/u60771138/Project 1/OswegoCaseStudy.csv" is:</div><div class="sasNote">       Filename=/home/u60771138/Project 1/OswegoCaseStudy.csv,</div><div class="sasNote">       Owner Name=u60771138,Group Name=oda,</div><div class="sasNote">       Access Permission=-rw-r--r--,</div><div class="sasNote">       Last Modified=21Feb2022:20:10:11,</div><div class="sasNote">       File Size (bytes)=5470</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote3_1656860269690"> NOTE: 75 records were read from the infile "/home/u60771138/Project 1/OswegoCaseStudy.csv".</div><div class="sasNote">       The minimum record length was 59.</div><div class="sasNote">       The maximum record length was 84.</div><div class="sasNote" id="sasLogNote4_1656860269690"> NOTE: The data set WORK.OSW has 75 observations and 23 variables.</div><div class="sasNote" id="sasLogNote5_1656860269690"> NOTE: DATA statement used (Total process time):</div><div class="sasNote">       real time           0.00 seconds</div><div class="sasNote">       user cpu time       0.01 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              800.25k</div><div class="sasNote">       OS Memory           24740.00k</div><div class="sasNote">       Timestamp           07/03/2022 02:57:49 PM</div><div class="sasNote">       Step Count                        24  Switch Count  2</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     194</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        13</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           264</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 92         </div><div class="sasSource"> 93         PROC FREQ data=osw;</div><div class="sasSource"> 94         table ill ill*sex;</div><div class="sasSource"> 95         run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote6_1656860269690"> NOTE: There were 75 observations read from the data set WORK.OSW.</div><div class="sasNote" id="sasLogNote7_1656860269690"> NOTE: PROCEDURE FREQ used (Total process time):</div><div class="sasNote">       real time           0.03 seconds</div><div class="sasNote">       user cpu time       0.04 seconds</div><div class="sasNote">       system cpu time     0.01 seconds</div><div class="sasNote">       memory              2272.84k</div><div class="sasNote">       OS Memory           26540.00k</div><div class="sasNote">       Timestamp           07/03/2022 02:57:49 PM</div><div class="sasNote">       Step Count                        25  Switch Count  4</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     843</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        22</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           528</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 96         </div><div class="sasSource"> 97         *Generate measures of central tendency/descriptive statistics for variable age;</div><div class="sasSource"> 98         </div><div class="sasSource"> 99         Proc means data=osw mean median min max;</div><div class="sasSource"> 100        var age;</div><div class="sasSource"> 101        run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote8_1656860269690"> NOTE: There were 75 observations read from the data set WORK.OSW.</div><div class="sasNote" id="sasLogNote9_1656860269690"> NOTE: PROCEDURE MEANS used (Total process time):</div><div class="sasNote">       real time           0.01 seconds</div><div class="sasNote">       user cpu time       0.01 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              6981.62k</div><div class="sasNote">       OS Memory           32200.00k</div><div class="sasNote">       Timestamp           07/03/2022 02:57:49 PM</div><div class="sasNote">       Step Count                        26  Switch Count  1</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     1806</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        20</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           0</div><div class="sasNote">       </div><div class="sasNote"> </div><div class="sasSource"> 102        </div><div class="sasSource"> 103        proc freq data= osw;</div><div class="sasSource"> 104        table (BAKEDHAM</div><div class="sasSource"> 105                  SPINACH MASHEDPOTA CABBAGESAL JELLO ROLLS</div><div class="sasSource"> 106                  BROWNBREAD MILK COFFEE</div><div class="sasSource"> 107                  WATER CAKES VANILLA CHOCOLATE</div><div class="sasSource"> 108                  FRUITSALAD) *ILL;</div><div class="sasSource"> 109        run;</div><div class="sasNote"> </div><div class="sasNote" id="sasLogNote10_1656860269690"> NOTE: There were 75 observations read from the data set WORK.OSW.</div><div class="sasNote" id="sasLogNote11_1656860269690"> NOTE: PROCEDURE FREQ used (Total process time):</div><div class="sasNote">       real time           0.25 seconds</div><div class="sasNote">       user cpu time       0.25 seconds</div><div class="sasNote">       system cpu time     0.00 seconds</div><div class="sasNote">       memory              1570.37k</div><div class="sasNote">       OS Memory           26796.00k</div><div class="sasNote">       Timestamp           07/03/2022 02:57:50 PM</div><div class="sasNote">       Step Count                        27  Switch Count  5</div><div class="sasNote">       Page Faults                       0</div><div class="sasNote">       Page Reclaims                     322</div><div class="sasNote">       Page Swaps                        0</div><div class="sasNote">       Voluntary Context Switches        30</div><div class="sasNote">       Involuntary Context Switches      0</div><div class="sasNote">       Block Input Operations            0</div><div class="sasNote">       Block Output Operations           608</div><div class="sasNote">       </div></div><div><div class="sasNote"> </div><div class="sasSource"> 110        </div><div class="sasSource"> 111        *Attack Rate Ratio is defined as the Number of people at risk who develop a certain illness;</div><div class="sasSource"> 112        </div><div class="sasSource"> 113        *We see that Ice cream is the vehicle of infection as it has the highest attack rate ratio;</div><div class="sasSource"> 114        </div><div class="sasSource"> 115        </div><div class="sasSource"> 116        OPTIONS NONOTES NOSTIMER NOSOURCE NOSYNTAXCHECK;</div><div class="sasSource"> 126        </div></div></pre></div></div>
+<p>
+</div>
+<div>
+<hr><h3>Results: oswegostudy.sas</h3>
+<div id="div_c12b6b20-e62c-43d8-be34-9475e95068b7" class="ods_c12b6b20-e62c-43d8-be34-9475e95068b7">
+
+
+<meta charset="utf-8">
+<meta content="SAS 9.4" name="generator">
+<title>Results: oswegostudy.sas</title>
+<style>
+/*<![CDATA[*/
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.c section > table, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.c section > pre, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.c div > table,
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.c div > pre, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.c article > table, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.c article > pre,
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.j section > table, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.j section > pre, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.j div > table,
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.j div > pre, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.j article > table, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.j article > pre,
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.c p.note, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.c p.warning, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.c p.error, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.c p.fatal,
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.j p.note, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.j p.warning, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.j p.error, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.j p.fatal,
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.c > table.layoutcontainer, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body.j > table.layoutcontainer { margin-left: auto; margin-right: auto }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.l table, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.l pre, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.l p.note,
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.l p.warning, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.l p.error, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.l p.fatal { margin-left: 0 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.c table, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.c pre, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.c p.note,
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.c p.warning, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.c p.error, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.c p.fatal { margin-left: auto; margin-right: auto }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.r table, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.r pre, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.r p.note,
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.r table, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.r pre, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.r p.note,
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.r p.warning, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.r p.error, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion.r p.fatal { margin-right: 0 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 article, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 aside, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 details, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 figcaption, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 figure, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 footer, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 header, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 hgroup, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 nav, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 section { display: block }
+html.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 { font-size: 100% }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body { margin: 1em; font-size: 13px; line-height: 1.231 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 sup { position: relative; vertical-align: baseline; bottom: 0.25em; font-size: 0.8em }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 sub { position: relative; vertical-align: baseline; top: 0.25em; font-size: 0.8em }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 ul, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 ol { margin: 1em 0; padding: 0 0 0 40px }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 dd { margin: 0 0 0 40px }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 nav ul, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 img { border: 0; vertical-align: middle }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 svg:not(:root) { overflow: hidden }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 figure { margin: 0 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 table { border-collapse: collapse; border-spacing: 0 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutcontainer { border-collapse: separate; border-spacing: 0 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 p { margin-top: 0; text-align: left }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 h1.heading1 { text-align: left }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 h2.heading2 { text-align: left }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 h3.heading3 { text-align: left }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 h4.heading4 { text-align: left }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 h5.heading5 { text-align: left }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 h6.heading6 { text-align: left }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 span { text-align: left }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 table { margin-bottom: 1em }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 td, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 th { text-align: left; padding: 3px 6px; vertical-align: top }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 td[class$="fixed"], .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 th[class$="fixed"] { white-space: pre }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 section, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 article { padding-top: 1px; padding-bottom: 8px }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 hr.pagebreak { height: 0px; border: 0; border-bottom: 1px solid #c0c0c0; margin: 1em 0 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .stacked-value { text-align: left; display: block }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .stacked-cell > .stacked-value, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 td.data > td.data, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 th.data > td.data, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 th.data > th.data, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 td.data > th.data, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 th.header > th.header { border: 0 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .stacked-cell > div.data { border-width: 0 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systitleandfootercontainer { white-space: nowrap; margin-bottom: 1em }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systitleandfootercontainer > p { margin: 0 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systitleandfootercontainer > p > span { display: inline-block; width: 100%; white-space: normal }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .batch { display: table }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .toc { display: none }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .proc_note_group, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .proc_title_group { margin-bottom: 1em }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 p.proctitle { margin: 0 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 p.note, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 p.warning, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 p.error, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 p.fatal { display: table }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .notebanner, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .warnbanner, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .errorbanner, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .fatalbanner,
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .notecontent, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .warncontent, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .errorcontent, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .fatalcontent { display: table-cell; padding: 0.5em }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .notebanner, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .warnbanner, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .errorbanner, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .fatalbanner { padding-right: 0 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body > div > ol li { text-align: left }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .beforecaption > h4 { margin-top: 0; margin-bottom: 0 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .c { text-align: center }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .r { text-align: right }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .l { text-align: left }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .j { text-align: justify }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .d { text-align: right }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .b { vertical-align: bottom }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .m { vertical-align: middle }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .t { vertical-align: top }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .accessiblecaption {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 a:active { color: #800080 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .aftercaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 4pt;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .batch > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .batch > tbody, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .batch > thead, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .batch > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .batch { border: hidden; }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .batch {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'SAS Monospace', 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    padding: 7px;
+    }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .beforecaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .body {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .bodydate {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    vertical-align: top;
+    width: 100%;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .bycontentfolder {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .byline {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .bylinecontainer > col, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .bylinecontainer > colgroup > col, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .bylinecontainer > colgroup, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .bylinecontainer > tr, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .bylinecontainer > * > tr, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .bylinecontainer > thead, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .bylinecontainer > tbody, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .bylinecontainer > tfoot { border: none; }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .bylinecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .caption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .cell, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .container {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .contentfolder, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .contentitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .contentproclabel, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .contentprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .contents {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .contentsdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .contenttitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .continued {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .data, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .dataemphasis {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .dataemphasisfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .dataempty {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .datafixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .datastrong {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .datastrongfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .date {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .document {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .errorbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .errorcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .errorcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .extendedpage {
+    background-color: #fafbfe;
+    border-style: solid;
+    border-width: 1pt;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .fatalbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .fatalcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .fatalcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .folderaction {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .footer {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .footeremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .footeremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .footerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .footerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .footerstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .footerstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .frame {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .graph > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .graph > tbody, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .graph > thead, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .graph > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .graph { border: hidden; }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .graph {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .header {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .headeremphasis {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .headeremphasisfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .headerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .headerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .headersandfooters {
+    background-color: #edf2f9;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .headerstrong {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .headerstrongfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .heading1, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .heading2, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .heading3, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .heading4, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .heading5, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .heading6 { font-family: Arial, Helvetica, sans-serif }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .index {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .indexaction, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .indexitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .indexprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .indextitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutcontainer, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .layoutregion {
+    border-width: 0;
+    border-spacing: 30px;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .linecontent {
+    background-color: #fafbfe;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 a:link { color: #0000ff }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .list {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .list10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .list2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .list3, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .list4, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .list5, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .list6, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .list7, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .list8, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .list9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .listitem {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .listitem10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .listitem2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .listitem3, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .listitem4, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .listitem5, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .listitem6, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .listitem7, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .listitem8, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .listitem9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .note {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .notebanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .notecontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .notecontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .output > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .output > tbody, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .output > thead, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .output > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .output { border: hidden; }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .output {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .pageno {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: top;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .pages {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .pagesdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .pagesitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .pagesproclabel, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .pagesprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .pagestitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .paragraph {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .parskip > col, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .parskip > colgroup > col, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .parskip > colgroup, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .parskip > tr, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .parskip > * > tr, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .parskip > thead, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .parskip > tbody, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .parskip > tfoot { border: none; }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .parskip {
+    border: none;
+    border-spacing: 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .prepage {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .proctitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .proctitlefixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowfooter {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowfooteremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowfooteremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowfooterempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowfooterfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowfooterstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowfooterstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowheader {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowheaderemphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowheaderemphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowheaderempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowheaderfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowheaderstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .rowheaderstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemfooter, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemfooter10, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemfooter2, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemfooter3, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemfooter4, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemfooter5, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemfooter6, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemfooter7, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemfooter8, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemfooter9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemtitle, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemtitle10, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemtitle2, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemtitle3, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemtitle4, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemtitle5, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemtitle6, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemtitle7, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemtitle8, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systemtitle9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systitleandfootercontainer > col, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systitleandfootercontainer > colgroup > col, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systitleandfootercontainer > colgroup, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systitleandfootercontainer > tr, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systitleandfootercontainer > * > tr, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systitleandfootercontainer > thead, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systitleandfootercontainer > tbody, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systitleandfootercontainer > tfoot { border: none; }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .systitleandfootercontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .table > col, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .table > colgroup > col {
+    border-left: 1px solid #c1c1c1;
+    border-right: 0 solid #c1c1c1;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .table > tr, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .table > * > tr {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 0 solid #c1c1c1;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .table { border: hidden; }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .table {
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .titleandnotecontainer > col, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .titleandnotecontainer > colgroup > col, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .titleandnotecontainer > colgroup, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .titleandnotecontainer > tr, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .titleandnotecontainer > * > tr, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .titleandnotecontainer > thead, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .titleandnotecontainer > tbody, .ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .titleandnotecontainer > tfoot { border: none; }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .titleandnotecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .titlesandfooters {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .usertext {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 a:visited { color: #800080 }
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .warnbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .warncontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_c12b6b20-e62c-43d8-be34-9475e95068b7 .warncontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+/*]]>*/
+</style>
+
+
+<div id="div_c12b6b20-e62c-43d8-be34-9475e95068b7" class="c body">
+<h1 class="body toc">Results: oswegostudy.sas</h1>
+<section data-name="Freq" data-sec-type="proc">
+<div id="IDX" class="proc_title_group">
+<p class="c proctitle">The FREQ Procedure</p>
+</div>
+<h1 class="contentprocname toc">The Freq Procedure</h1>
+<section>
+<h1 class="contentfolder toc">Table ILL</h1>
+<article aria-label="One-Way Frequencies">
+<h1 class="contentitem toc">One-Way Frequencies</h1>
+<table class="table" style="border-spacing: 0" aria-label="One-Way Frequencies">
+<caption aria-label="One-Way Frequencies"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="r b header" scope="col">ILL</th>
+<th class="r b header" scope="col">Frequency</th>
+<th class="r b header" scope="col">Percent</th>
+<th class="r b header" scope="col">Cumulative<br>Frequency</th>
+<th class="r b header" scope="col">Cumulative<br>Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">0</th>
+<td class="r data">29</td>
+<td class="r data">38.67</td>
+<td class="r data">29</td>
+<td class="r data">38.67</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">1</th>
+<td class="r data">46</td>
+<td class="r data">61.33</td>
+<td class="r data">75</td>
+<td class="r data">100.00</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section id="IDX1">
+<h1 class="contentfolder toc">Table ILL * SEX</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;ILL&nbsp;by&nbsp;SEX</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">ILL</th>
+<th class="c b header" colspan="3" scope="colgroup">SEX</th>
+</tr>
+<tr>
+<th class="r header" scope="col">Female</th>
+<th class="r header" scope="col">Male</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">14</div>
+<div class="r t">18.67</div>
+<div class="r t">48.28</div>
+<div class="r t">31.82</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">15</div>
+<div class="r t">20.00</div>
+<div class="r t">51.72</div>
+<div class="r t">48.39</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">30</div>
+<div class="r t">40.00</div>
+<div class="r t">65.22</div>
+<div class="r t">68.18</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">16</div>
+<div class="r t">21.33</div>
+<div class="r t">34.78</div>
+<div class="r t">51.61</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">44</div>
+<div class="r t">58.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">31</div>
+<div class="r t">41.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">75</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+</section>
+<section data-name="Means" data-sec-type="proc">
+<hr class="pagebreak">
+<div id="IDX2" class="proc_title_group">
+<p class="c proctitle">The MEANS Procedure</p>
+</div>
+<h1 class="contentprocname toc">The Means Procedure</h1>
+<article aria-label="Summary statistics">
+<h1 class="contentitem toc">Summary statistics</h1>
+<table class="table" style="border-spacing: 0" aria-label="Summary statistics">
+<caption aria-label="Summary statistics"></caption>
+<colgroup><col><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="4" scope="colgroup">Analysis Variable : AGE</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">Mean</th>
+<th class="r b header" scope="col">Median</th>
+<th class="r b header" scope="col">Minimum</th>
+<th class="r b header" scope="col">Maximum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="r data">36.8133333</td>
+<td class="r data">36.0000000</td>
+<td class="r data">3.0000000</td>
+<td class="r data">77.0000000</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<section data-name="Freq" data-sec-type="proc">
+<hr class="pagebreak">
+<div id="IDX3" class="proc_title_group">
+<p class="c proctitle">The FREQ Procedure</p>
+</div>
+<h1 class="contentprocname toc">The Freq Procedure</h1>
+<section>
+<h1 class="contentfolder toc">Table BAKEDHAM * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;BAKEDHAM&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">BAKEDHAM</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">12</div>
+<div class="r t">16.00</div>
+<div class="r t">41.38</div>
+<div class="r t">41.38</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">17</div>
+<div class="r t">22.67</div>
+<div class="r t">58.62</div>
+<div class="r t">36.96</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">17</div>
+<div class="r t">22.67</div>
+<div class="r t">36.96</div>
+<div class="r t">58.62</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+<div class="r t">63.04</div>
+<div class="r t">63.04</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">75</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+<section id="IDX4">
+<h1 class="contentfolder toc">Table SPINACH * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;SPINACH&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">SPINACH</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">12</div>
+<div class="r t">16.00</div>
+<div class="r t">37.50</div>
+<div class="r t">41.38</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">20</div>
+<div class="r t">26.67</div>
+<div class="r t">62.50</div>
+<div class="r t">43.48</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">32</div>
+<div class="r t">42.67</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">17</div>
+<div class="r t">22.67</div>
+<div class="r t">39.53</div>
+<div class="r t">58.62</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">26</div>
+<div class="r t">34.67</div>
+<div class="r t">60.47</div>
+<div class="r t">56.52</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">43</div>
+<div class="r t">57.33</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">75</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+<section id="IDX5">
+<h1 class="contentfolder toc">Table MASHEDPOTA * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;MASHEDPOTA&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">MASHEDPOTA</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">14</div>
+<div class="r t">18.92</div>
+<div class="r t">37.84</div>
+<div class="r t">50.00</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">23</div>
+<div class="r t">31.08</div>
+<div class="r t">62.16</div>
+<div class="r t">50.00</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">37</div>
+<div class="r t">50.00</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">14</div>
+<div class="r t">18.92</div>
+<div class="r t">37.84</div>
+<div class="r t">50.00</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">23</div>
+<div class="r t">31.08</div>
+<div class="r t">62.16</div>
+<div class="r t">50.00</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">37</div>
+<div class="r t">50.00</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">28</div>
+<div class="r t">37.84</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">62.16</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">74</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Frequency&nbsp;Missing&nbsp;=&nbsp;1</th>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+<section id="IDX6">
+<h1 class="contentfolder toc">Table CABBAGESAL * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;CABBAGESAL&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">CABBAGESAL</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">19</div>
+<div class="r t">25.33</div>
+<div class="r t">40.43</div>
+<div class="r t">65.52</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">28</div>
+<div class="r t">37.33</div>
+<div class="r t">59.57</div>
+<div class="r t">60.87</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">47</div>
+<div class="r t">62.67</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">10</div>
+<div class="r t">13.33</div>
+<div class="r t">35.71</div>
+<div class="r t">34.48</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">18</div>
+<div class="r t">24.00</div>
+<div class="r t">64.29</div>
+<div class="r t">39.13</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">28</div>
+<div class="r t">37.33</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">75</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+<section id="IDX7">
+<h1 class="contentfolder toc">Table JELLO * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;JELLO&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">JELLO</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">22</div>
+<div class="r t">29.33</div>
+<div class="r t">42.31</div>
+<div class="r t">75.86</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">30</div>
+<div class="r t">40.00</div>
+<div class="r t">57.69</div>
+<div class="r t">65.22</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">52</div>
+<div class="r t">69.33</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">7</div>
+<div class="r t">9.33</div>
+<div class="r t">30.43</div>
+<div class="r t">24.14</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">16</div>
+<div class="r t">21.33</div>
+<div class="r t">69.57</div>
+<div class="r t">34.78</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">23</div>
+<div class="r t">30.67</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">75</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+<section id="IDX8">
+<h1 class="contentfolder toc">Table ROLLS * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;ROLLS&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">ROLLS</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">13</div>
+<div class="r t">17.33</div>
+<div class="r t">34.21</div>
+<div class="r t">44.83</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">25</div>
+<div class="r t">33.33</div>
+<div class="r t">65.79</div>
+<div class="r t">54.35</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">38</div>
+<div class="r t">50.67</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">16</div>
+<div class="r t">21.33</div>
+<div class="r t">43.24</div>
+<div class="r t">55.17</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">21</div>
+<div class="r t">28.00</div>
+<div class="r t">56.76</div>
+<div class="r t">45.65</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">37</div>
+<div class="r t">49.33</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">75</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+<section id="IDX9">
+<h1 class="contentfolder toc">Table BROWNBREAD * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;BROWNBREAD&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">BROWNBREAD</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">20</div>
+<div class="r t">26.67</div>
+<div class="r t">41.67</div>
+<div class="r t">68.97</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">28</div>
+<div class="r t">37.33</div>
+<div class="r t">58.33</div>
+<div class="r t">60.87</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">48</div>
+<div class="r t">64.00</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">9</div>
+<div class="r t">12.00</div>
+<div class="r t">33.33</div>
+<div class="r t">31.03</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">18</div>
+<div class="r t">24.00</div>
+<div class="r t">66.67</div>
+<div class="r t">39.13</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">27</div>
+<div class="r t">36.00</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">75</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+<section id="IDX10">
+<h1 class="contentfolder toc">Table MILK * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;MILK&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">MILK</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">27</div>
+<div class="r t">36.00</div>
+<div class="r t">38.03</div>
+<div class="r t">93.10</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">44</div>
+<div class="r t">58.67</div>
+<div class="r t">61.97</div>
+<div class="r t">95.65</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">71</div>
+<div class="r t">94.67</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">2</div>
+<div class="r t">2.67</div>
+<div class="r t">50.00</div>
+<div class="r t">6.90</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">2</div>
+<div class="r t">2.67</div>
+<div class="r t">50.00</div>
+<div class="r t">4.35</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">4</div>
+<div class="r t">5.33</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">75</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+<section id="IDX11">
+<h1 class="contentfolder toc">Table COFFEE * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;COFFEE&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">COFFEE</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">17</div>
+<div class="r t">22.67</div>
+<div class="r t">38.64</div>
+<div class="r t">58.62</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">27</div>
+<div class="r t">36.00</div>
+<div class="r t">61.36</div>
+<div class="r t">58.70</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">44</div>
+<div class="r t">58.67</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">12</div>
+<div class="r t">16.00</div>
+<div class="r t">38.71</div>
+<div class="r t">41.38</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">19</div>
+<div class="r t">25.33</div>
+<div class="r t">61.29</div>
+<div class="r t">41.30</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">31</div>
+<div class="r t">41.33</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">75</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+<section id="IDX12">
+<h1 class="contentfolder toc">Table WATER * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;WATER&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">WATER</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">18</div>
+<div class="r t">24.00</div>
+<div class="r t">35.29</div>
+<div class="r t">62.07</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">33</div>
+<div class="r t">44.00</div>
+<div class="r t">64.71</div>
+<div class="r t">71.74</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">51</div>
+<div class="r t">68.00</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">11</div>
+<div class="r t">14.67</div>
+<div class="r t">45.83</div>
+<div class="r t">37.93</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">13</div>
+<div class="r t">17.33</div>
+<div class="r t">54.17</div>
+<div class="r t">28.26</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">24</div>
+<div class="r t">32.00</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">75</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+<section id="IDX13">
+<h1 class="contentfolder toc">Table CAKES * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;CAKES&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">CAKES</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">16</div>
+<div class="r t">21.33</div>
+<div class="r t">45.71</div>
+<div class="r t">55.17</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">19</div>
+<div class="r t">25.33</div>
+<div class="r t">54.29</div>
+<div class="r t">41.30</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">35</div>
+<div class="r t">46.67</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">13</div>
+<div class="r t">17.33</div>
+<div class="r t">32.50</div>
+<div class="r t">44.83</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">27</div>
+<div class="r t">36.00</div>
+<div class="r t">67.50</div>
+<div class="r t">58.70</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">40</div>
+<div class="r t">53.33</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">75</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+<section id="IDX14">
+<h1 class="contentfolder toc">Table VANILLA * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;VANILLA&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">VANILLA</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">18</div>
+<div class="r t">24.00</div>
+<div class="r t">85.71</div>
+<div class="r t">62.07</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">3</div>
+<div class="r t">4.00</div>
+<div class="r t">14.29</div>
+<div class="r t">6.52</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">21</div>
+<div class="r t">28.00</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">11</div>
+<div class="r t">14.67</div>
+<div class="r t">20.37</div>
+<div class="r t">37.93</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">43</div>
+<div class="r t">57.33</div>
+<div class="r t">79.63</div>
+<div class="r t">93.48</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">54</div>
+<div class="r t">72.00</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">75</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+<section id="IDX15">
+<h1 class="contentfolder toc">Table CHOCOLATE * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;CHOCOLATE&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">CHOCOLATE</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">7</div>
+<div class="r t">9.46</div>
+<div class="r t">25.93</div>
+<div class="r t">24.14</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">20</div>
+<div class="r t">27.03</div>
+<div class="r t">74.07</div>
+<div class="r t">44.44</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">27</div>
+<div class="r t">36.49</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">22</div>
+<div class="r t">29.73</div>
+<div class="r t">46.81</div>
+<div class="r t">75.86</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">25</div>
+<div class="r t">33.78</div>
+<div class="r t">53.19</div>
+<div class="r t">55.56</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">47</div>
+<div class="r t">63.51</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">39.19</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">45</div>
+<div class="r t">60.81</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">74</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Frequency&nbsp;Missing&nbsp;=&nbsp;1</th>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+<section id="IDX16">
+<h1 class="contentfolder toc">Table FRUITSALAD * ILL</h1>
+<article aria-label="Cross-Tabular Freq Table">
+<h1 class="contentitem toc">Cross-Tabular Freq Table</h1>
+<table role="presentation">
+<tbody><tr>
+<td class="c t"><table class="table" style="border-spacing: 0">
+<colgroup><col></colgroup>
+<tbody>
+<tr>
+<th class="t header" scope="col">
+<div class="stacked-cell">
+<div class="t">Frequency</div>
+<div class="t">Percent</div>
+<div class="t">Row Pct</div>
+<div class="t">Col Pct</div>
+</div>
+</th>
+</tr>
+</tbody>
+</table>
+</td>
+<td><table class="table" style="border-spacing: 0" aria-label="Cross-Tabular Freq Table">
+<caption aria-label="Cross-Tabular Freq Table"></caption>
+<colgroup><col></colgroup><colgroup><col><col><col></colgroup>
+<thead>
+<tr>
+<th class="c header" colspan="4" scope="colgroup">Table&nbsp;of&nbsp;FRUITSALAD&nbsp;by&nbsp;ILL</th>
+</tr>
+<tr>
+<th class="c b header" rowspan="2" scope="col">FRUITSALAD</th>
+<th class="c b header" colspan="3" scope="colgroup">ILL</th>
+</tr>
+<tr>
+<th class="r header" scope="col">0</th>
+<th class="r header" scope="col">1</th>
+<th class="r header" scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="r t rowheader" scope="row">0</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">27</div>
+<div class="r t">36.00</div>
+<div class="r t">39.13</div>
+<div class="r t">93.10</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">42</div>
+<div class="r t">56.00</div>
+<div class="r t">60.87</div>
+<div class="r t">91.30</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">69</div>
+<div class="r t">92.00</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="r t rowheader" scope="row">1</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">2</div>
+<div class="r t">2.67</div>
+<div class="r t">33.33</div>
+<div class="r t">6.90</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">4</div>
+<div class="r t">5.33</div>
+<div class="r t">66.67</div>
+<div class="r t">8.70</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">6</div>
+<div class="r t">8.00</div>
+<div class="r t">&nbsp;</div>
+<div class="r t">&nbsp;</div>
+</div>
+</td>
+</tr>
+<tr>
+<th class="t rowheader" scope="row">Total</th>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">29</div>
+<div class="r t">38.67</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">46</div>
+<div class="r t">61.33</div>
+</div>
+</td>
+<td class="r t data">
+<div class="stacked-cell">
+<div class="r t">75</div>
+<div class="r t">100.00</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody></table>
+</article>
+</section>
+</section>
+</div>
+
+
+</div>
+<p>
+</div>
+</body></html>
